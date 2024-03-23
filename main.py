@@ -4,7 +4,7 @@ import subprocess
 
 
 server = JavaServer("localhost", 25565)
-suspend_time = 30
+suspend_time = 1200 #20 mins
 counter = 0
 inc = 5
 
