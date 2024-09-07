@@ -3,10 +3,20 @@ import time
 import subprocess
 
 
-server = JavaServer("localhost", 25565)
+server = None
 suspend_time = 1200 #20 mins
 counter = 0
 inc = 5
+port = 25565
+
+while True:
+	try:
+		server = JavaServer("localhost", port)
+		server.status()
+		break
+	except Exception as e:
+		print(f"A server was not found on port {port}. Trying again in {inc} seconds...")
+		time.sleep(inc)
 
 while True:
 	time.sleep(inc)
